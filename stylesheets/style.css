@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: solid 1px grey;
+}
+
+nav > img {
+    height: 100px;
+    width : auto;
+}
+
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+div {
+    padding: 50px 20px;
+    text-align: center;
+}
+
