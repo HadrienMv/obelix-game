@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Obelix';
+    src: url('../resources/Font/ObelixPro-cyr.ttf')  format('truetype');
+  }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -16,8 +21,47 @@ body {
     font-family: sans-serif;
 }
 
-div {
+.main {
     padding: 50px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+section > img {
+    height: 90px;
+    padding: 10px 0px;
+}
+
+h1 {
+    font-family: 'Obelix';
+    color: blue;
+    font-size: 1em;
     text-align: center;
 }
 
+p {
+    font-family: 'Obelix';
+    font-size: 0.6em;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+.score, .level {
+    font-size: 2em;
+}
+
+section > div {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.first-div {
+    padding: 20px 0px 0px 0px;
+}
