@@ -30,11 +30,11 @@ speedDifficulty = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 // Creating the game area
 const myGameArea = {    
     canvas: document.createElement('canvas'),
-    set: function () {
+    set: function (img) {
         this.canvas.width = 900;
         this.canvas.height = 420;
         this.context = this.canvas.getContext('2d');
-        this.context.drawImage(backgroundImg, 0, 0, this.canvas.width, this.canvas.height);
+        this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
         document.querySelector('div').insertBefore(this.canvas, document.querySelector('div').childNodes[0]);
         themeAudio.play()
         this.interval = setInterval(updateGameArea, 20);
@@ -43,12 +43,12 @@ const myGameArea = {
         themeAudio.pause()
         playAudio.play()
         spawnRomans()
-        setInterval(spawnRomans, Math.random() * (6000/globalLevel - 3000/globalLevel) + 3000/globalLevel);
-        setInterval(spawnRewards, Math.random() * (12000 - 9000) + 9000);
+        setInterval(spawnRomans, Math.random() * (5000/globalLevel - 2000/globalLevel) + 2000/globalLevel);
+        setInterval(spawnRewards, Math.random() * (13000 - 10000) + 10000);
     },
-    clear: function () {
+    clear: function (img) {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.context.drawImage(backgroundImg, 0, 0, this.canvas.width, this.canvas.height);
+        this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
     },    
     stop: function () {
         clearInterval(this.interval);
@@ -60,7 +60,7 @@ myGameArea.set()
 // Start Game
 let gameStarted = false
 document.addEventListener('keydown',()=>{
-    myGameArea.start()
+    myGameArea.start(backgroundImg)
 }, {once : true})
 
 // Creating the object component 
@@ -302,7 +302,7 @@ function showBoulderInventory() {
 
 // Updater function
 function updateGameArea() {
-    myGameArea.clear();
+    myGameArea.clear(backgroundImg);
     obelix.update();
     moveRomans(myRomans);
     moveRewards(myRewards);
