@@ -1,16 +1,28 @@
 // Loading main resources
-backgroundImg = new Image()
-backgroundImg.src = `../resources/backgroundimage.jpg`
+backgroundImg1= new Image()
+backgroundImg1.src = `../resources/backgroundimage1.jpg`
+backgroundImg2= new Image()
+backgroundImg2.src = `../resources/backgroundimage2.jpg`
+backgroundImg3= new Image()
+backgroundImg3.src = `../resources/backgroundimage3.jpg`
+backgroundImg4= new Image()
+backgroundImg4.src = `../resources/backgroundimage4.jpg`
+backgroundImg5= new Image()
+backgroundImg5.src = `../resources/backgroundimage5.jpg`
+backgroundImg6= new Image()
+backgroundImg6.src = `../resources/backgroundimage6.jpg`
+backgroundImgs = [backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4, backgroundImg5, backgroundImg6]
+myBackgroundImg = backgroundImg1
 
 startButtonImg = new Image()
 startButtonImg.src = `../resources/startbutton.png`
 
 themeAudio = new Audio('../resources/themeobelix.mp3')
 themeAudio.loop = true
-themeAudio.volume = 0.4
+themeAudio.volume = 0.2
 playAudio = new Audio('../resources/gameobelix.mp3')
 playAudio.loop = true
-playAudio.volume = 0.4
+playAudio.volume = 0.2
 
 killAudio1 = new Audio('../resources/audiofrappe1.mp3')
 killAudio2 = new Audio('../resources/audiofrappe2.mp3')
@@ -43,8 +55,8 @@ const myGameArea = {
         themeAudio.pause()
         playAudio.play()
         spawnRomans()
-        setInterval(spawnRomans, Math.random() * (5000/globalLevel - 2000/globalLevel) + 2000/globalLevel);
-        setInterval(spawnRewards, Math.random() * (13000 - 10000) + 10000);
+        setInterval(spawnRomans, Math.random() * (4500/globalLevel - 1500/globalLevel) + 1500/globalLevel);
+        setInterval(spawnRewards, Math.random() * (15000 - 10000) + 10000);
     },
     clear: function (img) {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -55,12 +67,12 @@ const myGameArea = {
     },
 }
 
-myGameArea.set()
+myGameArea.set(myBackgroundImg)
 
 // Start Game
 let gameStarted = false
 document.addEventListener('keydown',()=>{
-    myGameArea.start(backgroundImg)
+    myGameArea.start(myBackgroundImg)
 }, {once : true})
 
 // Creating the object component 
@@ -238,7 +250,8 @@ function checkGame() {
         killCounter = 0
         speedDifficulty.shift()
         globalLevel += 1
-        playAudio.playbackRate *= 1.05
+        myBackgroundImg = backgroundImgs[(globalLevel -1) % 6]
+        playAudio.playbackRate *= 1.075
     }
   }
 
@@ -302,7 +315,7 @@ function showBoulderInventory() {
 
 // Updater function
 function updateGameArea() {
-    myGameArea.clear(backgroundImg);
+    myGameArea.clear(myBackgroundImg);
     obelix.update();
     moveRomans(myRomans);
     moveRewards(myRewards);
