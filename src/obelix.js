@@ -6,9 +6,11 @@ startButtonImg = new Image()
 startButtonImg.src = `../resources/startbutton.png`
 
 themeAudio = new Audio('../resources/themeobelix.mp3')
+themeAudio.loop = true
 themeAudio.volume = 0.4
 playAudio = new Audio('../resources/gameobelix.mp3')
-themeAudio.volume = 0.4
+playAudio.loop = true
+playAudio.volume = 0.4
 
 killAudio1 = new Audio('../resources/audiofrappe1.mp3')
 killAudio2 = new Audio('../resources/audiofrappe2.mp3')
@@ -42,7 +44,7 @@ const myGameArea = {
         playAudio.play()
         spawnRomans()
         setInterval(spawnRomans, Math.random() * (6000/globalLevel - 3000/globalLevel) + 3000/globalLevel);
-        setInterval(spawnRewards, Math.random() * (10000 - 7000) + 7000);
+        setInterval(spawnRewards, Math.random() * (12000 - 9000) + 9000);
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -142,7 +144,7 @@ let bouldersFlying = []
 
 function spawnBoulders() {
     if(boulderInventory > 0) {
-        const newBoulder = new Component(boulderImg, obelix.x + 50, 225, boulderImg.width/10, boulderImg.height/10);
+        const newBoulder = new Component(boulderImg, obelix.x + 50, obelix.y, boulderImg.width/10, boulderImg.height/10);
         bouldersFlying.push(newBoulder)
         boulderInventory -= 1
     }
@@ -152,7 +154,7 @@ function flyBoulders(boulders) {
     for(let y = 0; y < boulders.length; y++) {
         boulders[y].update();
         boulders[y].fly();
-        if(boulders[y].x > 950) {
+        if(boulders[y].x > 910) {
             boulders.splice(y, 1)
         }
     }
@@ -236,7 +238,7 @@ function checkGame() {
         killCounter = 0
         speedDifficulty.shift()
         globalLevel += 1
-        playAudio.playbackRate *= 1.2
+        playAudio.playbackRate *= 1.05
     }
   }
 
