@@ -65,3 +65,24 @@ section > div {
 .first-div {
     padding: 20px 0px 0px 0px;
 }
+
+#start-button {
+    height: 80px;
+    position: absolute;
+    bottom: 230px;
+    left: 340px;
+}
+
+#game-over-img {
+    height: 200px;
+    position: absolute;
+    bottom: 230px;
+    left: 310px;
+}
+
+#replay-button {
+    height: 50px;
+    position: absolute;
+    bottom: 190px;
+    left: 360px;
+}

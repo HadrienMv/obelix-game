@@ -16,13 +16,22 @@ myBackgroundImg = backgroundImg1
 
 startButtonImg = new Image()
 startButtonImg.src = `../resources/startbutton.png`
+gameOverButtonImg = new Image()
+gameOverButtonImg.src = '../resources/gameover.png'
+gameOverButtonImg.id = `game-over-img`
+replayButtonImg = new Image()
+replayButtonImg.src = '../resources/replay.png'
+replayButtonImg.id = 'replay-button'
+replayButtonImg.addEventListener('click',()=>{
+    location.reload()
+}, {once : true})
 
 themeAudio = new Audio('../resources/themeobelix.mp3')
 themeAudio.loop = true
-themeAudio.volume = 0.2
+themeAudio.volume = 0.15
 playAudio = new Audio('../resources/gameobelix.mp3')
 playAudio.loop = true
-playAudio.volume = 0.2
+playAudio.volume = 0.15
 
 killAudio1 = new Audio('../resources/audiofrappe1.mp3')
 killAudio2 = new Audio('../resources/audiofrappe2.mp3')
@@ -37,7 +46,7 @@ jumpAudio = new Audio('../resources/jump.mp3')
 let killCounter = 0
 let globalScore = 0
 let globalLevel = 1
-speedDifficulty = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+speedDifficulty = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 // Creating the game area
 const myGameArea = {    
@@ -55,7 +64,7 @@ const myGameArea = {
         themeAudio.pause()
         playAudio.play()
         spawnRomans()
-        setInterval(spawnRomans, Math.random() * (4500/globalLevel - 1500/globalLevel) + 1500/globalLevel);
+        setInterval(spawnRomans, Math.random() * (3500/globalLevel - 1500/globalLevel) + 1500/globalLevel);
         setInterval(spawnRewards, Math.random() * (15000 - 10000) + 10000);
     },
     clear: function (img) {
@@ -70,9 +79,11 @@ const myGameArea = {
 myGameArea.set(myBackgroundImg)
 
 // Start Game
-let gameStarted = false
-document.addEventListener('keydown',()=>{
+
+let startButton = document.getElementById("start-button")
+startButton.addEventListener('click',()=>{
     myGameArea.start(myBackgroundImg)
+    startButton.remove()
 }, {once : true})
 
 // Creating the object component 
@@ -178,17 +189,19 @@ romanOneImg.src = `../resources/Romain1.png`
 romanTwoImg = new Image()
 romanTwoImg.src = `../resources/Romain2.png`
 romanThreeImg = new Image()
-romanThreeImg.src = `../resources/Romain4.png`
+romanThreeImg.src = `../resources/Romain3.png`
 romanFourImg = new Image()
-romanFourImg.src = `../resources/Romain5.png`
+romanFourImg.src = `../resources/Romain4.png`
+romanFiveImg = new Image()
+romanFiveImg.src = `../resources/Romain5.png`
 romanDeadImg = new Image()
 romanDeadImg.src = `../resources/romaindead.png`
 
-let myRomansLibrary = [romanOneImg, romanTwoImg, romanThreeImg, romanFourImg]
+let myRomansLibrary = [romanOneImg, romanTwoImg, romanThreeImg, romanFourImg, romanFiveImg]
 let myRomans = []
 
 function spawnRomans() {
-    const spawnedRomanImg = myRomansLibrary[Math.round(Math.random() * 3)]
+    const spawnedRomanImg = myRomansLibrary[Math.round(Math.random() * 4)]
     const newRoman = new Component (spawnedRomanImg, 800, 390-spawnedRomanImg.height/2, spawnedRomanImg.width/2, spawnedRomanImg.height/2)
     myRomans.push(newRoman)
 }
@@ -234,6 +247,8 @@ function checkGame() {
         playAudio.pause()
         gameOverAudio.play()
         myGameArea.stop();
+        document.querySelector('div').insertBefore(gameOverButtonImg, document.querySelector('div').childNodes[1])
+        document.querySelector('div').insertBefore(replayButtonImg, document.querySelector('div').childNodes[1])
     }
     
     const crashedReward = myRewards.some(function (boulder) {
