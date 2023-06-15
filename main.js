@@ -1,47 +1,47 @@
 // Loading main resources
 backgroundImg1= new Image()
-backgroundImg1.src = `./resources/backgroundimage1.jpg`
+backgroundImg1.src = `/docs/assets/backgroundimage1.jpg`
 backgroundImg2= new Image()
-backgroundImg2.src = `./resources/backgroundimage2.jpg`
+backgroundImg2.src = `/docs/assets/backgroundimage2.jpg`
 backgroundImg3= new Image()
-backgroundImg3.src = `./resources/backgroundimage3.jpg`
+backgroundImg3.src = `/docs/assets/backgroundimage3.jpg`
 backgroundImg4= new Image()
-backgroundImg4.src = `./resources/backgroundimage4.jpg`
+backgroundImg4.src = `/docs/assets/backgroundimage4.jpg`
 backgroundImg5= new Image()
-backgroundImg5.src = `./resources/backgroundimage5.jpg`
+backgroundImg5.src = `/docs/assets/backgroundimage5.jpg`
 backgroundImg6= new Image()
-backgroundImg6.src = `./resources/backgroundimage6.jpg`
+backgroundImg6.src = `/docs/assets/backgroundimage6.jpg`
 backgroundImgs = [backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4, backgroundImg5, backgroundImg6]
 myBackgroundImg = backgroundImg1
 
 startButtonImg = new Image()
-startButtonImg.src = `./resources/startbutton.png`
+startButtonImg.src = `/docs/assets/startbutton.png`
 gameOverButtonImg = new Image()
-gameOverButtonImg.src = './resources/gameover.png'
+gameOverButtonImg.src = '/docs/assets/gameover.png'
 gameOverButtonImg.id = `game-over-img`
 replayButtonImg = new Image()
-replayButtonImg.src = './resources/replay.png'
+replayButtonImg.src = '/docs/assets/replay.png'
 replayButtonImg.id = 'replay-button'
 replayButtonImg.addEventListener('click',()=>{
     location.reload()
 }, {once : true})
 
-themeAudio = new Audio('./resources/themeobelix.mp3')
+themeAudio = new Audio('/docs/assets/themeobelix.mp3')
 themeAudio.loop = true
 themeAudio.volume = 0.15
-playAudio = new Audio('./resources/gameobelix.mp3')
+playAudio = new Audio('/docs/assets/gameobelix.mp3')
 playAudio.loop = true
 playAudio.volume = 0.15
 
-killAudio1 = new Audio('./resources/audiofrappe1.mp3')
-killAudio2 = new Audio('./resources/audiofrappe2.mp3')
-killAudio3 = new Audio('./resources/audiofrappe3.mp3')
-killAudio4 = new Audio('./resources/audiofrappe4.mp3')
+killAudio1 = new Audio('/docs/assets/audiofrappe1.mp3')
+killAudio2 = new Audio('/docs/assets/audiofrappe2.mp3')
+killAudio3 = new Audio('/docs/assets/audiofrappe3.mp3')
+killAudio4 = new Audio('/docs/assets/audiofrappe4.mp3')
 let killAudios = [killAudio1, killAudio2, killAudio3, killAudio4]
 
-gameOverAudio = new Audio('./resources/audiogameover.mp3')
-reloadAudio = new Audio('./resources/gunreload.mp3')
-jumpAudio = new Audio('./resources/jump.mp3')
+gameOverAudio = new Audio('/docs/assets/audiogameover.mp3')
+reloadAudio = new Audio('/docs/assets/gunreload.mp3')
+jumpAudio = new Audio('/docs/assets/jump.mp3')
 
 let killCounter = 0
 let globalScore = 0
@@ -118,7 +118,7 @@ class Component {
 
 // Creating the player
 playerImg = new Image()
-playerImg.src = `./resources/obelix-nav.png`
+playerImg.src = `/docs/assets/obelix-nav.png`
 const obelix = new Component(playerImg, 20, 235, 160, 160);
 
 // Player controls
@@ -161,7 +161,7 @@ function jump() {
 }
 
 boulderImg = new Image()
-boulderImg.src = `./resources/boulderimg.png`
+boulderImg.src = `/docs/assets/boulderimg.png`
 let boulderInventory = 3
 let bouldersFlying = []
 
@@ -185,17 +185,17 @@ function flyBoulders(boulders) {
 
 // Creating the ennemies
 romanOneImg = new Image()
-romanOneImg.src = `./resources/Romain1.png`
+romanOneImg.src = `/docs/assets/Romain1.png`
 romanTwoImg = new Image()
-romanTwoImg.src = `./resources/Romain2.png`
+romanTwoImg.src = `/docs/assets/Romain2.png`
 romanThreeImg = new Image()
-romanThreeImg.src = `./resources/Romain3.png`
+romanThreeImg.src = `/docs/assets/Romain3.png`
 romanFourImg = new Image()
-romanFourImg.src = `./resources/Romain4.png`
+romanFourImg.src = `/docs/assets/Romain4.png`
 romanFiveImg = new Image()
-romanFiveImg.src = `./resources/Romain5.png`
+romanFiveImg.src = `/docs/assets/Romain5.png`
 romanDeadImg = new Image()
-romanDeadImg.src = `./resources/romaindead.png`
+romanDeadImg.src = `/docs/assets/romaindead.png`
 
 let myRomansLibrary = [romanOneImg, romanTwoImg, romanThreeImg, romanFourImg, romanFiveImg]
 let myRomans = []
@@ -218,7 +218,7 @@ function moveRomans(romans) {
 
 // Creating the boulder rewards
 miniBoulderImg = new Image()
-miniBoulderImg.src = `./resources/miniboulder.png`
+miniBoulderImg.src = `/docs/assets/miniboulder.png`
 
 let myRewards = []
 
@@ -313,7 +313,7 @@ function updateLevel() {
 }
 
 miniBoulderInventoryImg = new Image()
-miniBoulderInventoryImg.src = `./resources/boulderinventory.png`
+miniBoulderInventoryImg.src = `/docs/assets/boulderinventory.png`
 function showBoulderInventory() {
     let boulderOffset = 0
     let boulderInventoryImg = []
