@@ -11,7 +11,17 @@ backgroundImg5= new Image()
 backgroundImg5.src = `./assets/backgroundimage5.jpg`
 backgroundImg6= new Image()
 backgroundImg6.src = `./assets/backgroundimage6.jpg`
-backgroundImgs = [backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4, backgroundImg5, backgroundImg6]
+backgroundImg7= new Image()
+backgroundImg7.src = `./assets/backgroundimage7.jpg`
+backgroundImg8= new Image()
+backgroundImg8.src = `./assets/backgroundimage8.jpg`
+backgroundImg9= new Image()
+backgroundImg9.src = `./assets/backgroundimage9.jpg`
+backgroundImg10= new Image()
+backgroundImg10.src = `./assets/backgroundimage10.jpg`
+backgroundImg11= new Image()
+backgroundImg11.src = `./assets/backgroundimage11.jpg`
+backgroundImgs = [backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4, backgroundImg5, backgroundImg6, backgroundImg7, backgroundImg8, backgroundImg9, backgroundImg10, backgroundImg11]
 myBackgroundImg = backgroundImg1
 
 startButtonImg = new Image()
@@ -123,7 +133,7 @@ const obelix = new Component(playerImg, 20, 235, 160, 160);
 
 // Player controls
 document.addEventListener('keydown',(event)=>{
-    switch (event.key) {
+    switch (event.code) {
         case 'ArrowUp':
             if(obelix.y > 220) {
                 jumping = setInterval(jump, 30);
@@ -136,7 +146,7 @@ document.addEventListener('keydown',(event)=>{
         case 'ArrowRight':
             obelix.moveright()
             break;
-        case 't':
+        case 'Space':
             spawnBoulders()
             break;
     }
@@ -265,7 +275,7 @@ function checkGame() {
         killCounter = 0
         speedDifficulty.shift()
         globalLevel += 1
-        myBackgroundImg = backgroundImgs[(globalLevel -1) % 6]
+        myBackgroundImg = backgroundImgs[(globalLevel -1) % 11]
         playAudio.playbackRate *= 1.075
     }
   }
