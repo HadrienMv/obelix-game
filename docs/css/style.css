@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Obelix';
-    src: url('../resources/Font/ObelixPro-cyr.ttf')  format('truetype');
+    src: url('/docs/assets/Font/ObelixPro-cyr.ttf')  format('truetype');
   }
 
 nav {
