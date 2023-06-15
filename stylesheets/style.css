@@ -67,22 +67,22 @@ section > div {
 }
 
 #start-button {
-    height: 80px;
+    height: 12%;
     position: absolute;
-    bottom: 230px;
-    left: 340px;
+    bottom: 35%;
+    left: 27%;
 }
 
 #game-over-img {
-    height: 200px;
+    height: 27%;
     position: absolute;
-    bottom: 230px;
-    left: 310px;
+    bottom: 37%;
+    left: 26%;
 }
 
 #replay-button {
-    height: 50px;
+    height: 9%;
     position: absolute;
-    bottom: 190px;
-    left: 360px;
+    bottom: 30%;
+    left: 27%;
 }
