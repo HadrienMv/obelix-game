@@ -118,7 +118,7 @@ class Component {
 
 // Creating the player
 playerImg = new Image()
-playerImg.src = '../resources/obelix-nav.png' 
+playerImg.src = './resources/obelix-nav.png' 
 const obelix = new Component(playerImg, 20, 235, 160, 160);
 
 // Player controls
@@ -161,7 +161,7 @@ function jump() {
 }
 
 boulderImg = new Image()
-boulderImg.src = '../resources/boulderimg.png'
+boulderImg.src = './resources/boulderimg.png'
 let boulderInventory = 3
 let bouldersFlying = []
 
@@ -185,17 +185,17 @@ function flyBoulders(boulders) {
 
 // Creating the ennemies
 romanOneImg = new Image()
-romanOneImg.src = `../resources/Romain1.png`
+romanOneImg.src = `./resources/Romain1.png`
 romanTwoImg = new Image()
-romanTwoImg.src = `../resources/Romain2.png`
+romanTwoImg.src = `./resources/Romain2.png`
 romanThreeImg = new Image()
-romanThreeImg.src = `../resources/Romain3.png`
+romanThreeImg.src = `./resources/Romain3.png`
 romanFourImg = new Image()
-romanFourImg.src = `../resources/Romain4.png`
+romanFourImg.src = `./resources/Romain4.png`
 romanFiveImg = new Image()
-romanFiveImg.src = `../resources/Romain5.png`
+romanFiveImg.src = `./resources/Romain5.png`
 romanDeadImg = new Image()
-romanDeadImg.src = `../resources/romaindead.png`
+romanDeadImg.src = `./resources/romaindead.png`
 
 let myRomansLibrary = [romanOneImg, romanTwoImg, romanThreeImg, romanFourImg, romanFiveImg]
 let myRomans = []
@@ -218,7 +218,7 @@ function moveRomans(romans) {
 
 // Creating the boulder rewards
 miniBoulderImg = new Image()
-miniBoulderImg.src = `../resources/miniboulder.png`
+miniBoulderImg.src = `./resources/miniboulder.png`
 
 let myRewards = []
 
@@ -313,7 +313,7 @@ function updateLevel() {
 }
 
 miniBoulderInventoryImg = new Image()
-miniBoulderInventoryImg.src = '../resources/boulderinventory.png'
+miniBoulderInventoryImg.src = './resources/boulderinventory.png'
 function showBoulderInventory() {
     let boulderOffset = 0
     let boulderInventoryImg = []
